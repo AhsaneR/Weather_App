@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkyCast — Weather App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app__header">
+      <h1 class="app__title">SkyCast</h1>
+      <p class="app__subtitle">Live weather for any city in the world.</p>
+    </header>
+
+    <!-- Search bar -->
+    <div class="search">
+      <input
+        type="text"
+        id="cityInput"
+        class="search__input"
+        placeholder="Enter a city (e.g. Lahore, Tokyo, London)"
+        autocomplete="off"
+      />
+      <button id="searchBtn" class="search__btn">Search</button>
+    </div>
+
+    <!-- Loading spinner -->
+    <div class="state" id="loading" hidden>
+      <div class="spinner"></div>
+      <p>Fetching weather…</p>
+    </div>
+
+    <!-- Error message -->
+    <div class="state state--error" id="error" hidden></div>
+
+    <!-- Hint shown before the first search -->
+    <div class="state" id="hint">Search for a city to see the current weather.</div>
+
+    <!-- Weather result (hidden until data loads) -->
+    <section class="weather" id="weather" hidden>
+      <div class="current">
+        <div class="current__main">
+          <span class="current__icon" id="currentIcon"></span>
+          <div>
+            <h2 class="current__city" id="currentCity"></h2>
+            <p class="current__desc" id="currentDesc"></p>
+          </div>
+        </div>
+        <p class="current__temp" id="currentTemp"></p>
+      </div>
+
+      <!-- Extra details -->
+      <div class="details">
+        <div class="detail">
+          <span class="detail__label">Feels like</span>
+          <span class="detail__value" id="feelsLike"></span>
+        </div>
+        <div class="detail">
+          <span class="detail__label">Humidity</span>
+          <span class="detail__value" id="humidity"></span>
+        </div>
+        <div class="detail">
+          <span class="detail__label">Wind</span>
+          <span class="detail__value" id="wind"></span>
+        </div>
+      </div>
+
+      <!-- 5-day forecast -->
+      <h3 class="forecast__title">Next days</h3>
+      <div class="forecast" id="forecast"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
